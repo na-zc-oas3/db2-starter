@@ -1,0 +1,39 @@
+apiVersion: 1.0.0
+metadata:
+  name: sample-db2-api
+projects:
+  - name: employees-api
+    source:
+      location: 'https://github.com/kenishia/sample-db2-api.git'
+      type: github
+      branch: main
+      sparseCheckoutDir: start
+components:
+  - mountSources: true
+    endpoints:
+      - attributes:
+          cookiesAuthEnabled: 'true'
+          public: 'true'
+          path: /zosConnect/designer/
+          secure: 'true'
+        name: zosconnect-ui-endpoint
+        port: 9080
+    env:
+      - name: ZCON_DESIGNER_PROJECT
+        value: /projects/employees-api/start
+      - name: DB2_HOST
+        value: "cap-us-east-prd-sg-bm-01.securegateway.appdomain.cloud"
+      - name: DB2_PORT
+        value: "15428"
+      - name: DB2_USERNAME
+        value: "tsoidhere"
+      - name: DB2_PASSWORD
+        value: "passwordhere"
+    memoryLimit: 4927M
+    type: dockerimage
+    image: 'icr.io/zosconnect/ibm-zcon-designer:3.0.58'
+    alias: zosconnect
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+  - id: redhat/vscode-xml/latest
+    type: chePlugin
