@@ -4,7 +4,7 @@ metadata:
 projects:
   - name: employees-api
     source:
-      location: 'https://github.com/kenishia/sample-db2-api.git'
+      location: 'https://github.com/na-zc-oas3/db2-starter.git'
       type: github
       branch: main
       sparseCheckoutDir: start
