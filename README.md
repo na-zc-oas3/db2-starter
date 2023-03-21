@@ -31,7 +31,7 @@ Optionally, you can edit the `devfile.yaml` file to reflect the name of the API 
 metadata:
   name: sample-db2-api
 projects:
-  - name: stub-db2-api
+  - name: employees-db2-api
   .
   .
   .
